@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<country2 xmlns:ns2="example.java.xml.parser.jaxb.bean.Country2">
+    <countryName>India</countryName>
+    <countryPopulation>5000000.0</countryPopulation>
+    <stateList>
+        <State>
+            <stateName>Madhya Pradesh</stateName>
+            <statePopulation>1000000</statePopulation>
+        </State>
+        <State>
+            <stateName>Maharastra</stateName>
+            <statePopulation>2000000</statePopulation>
+        </State>
+    </stateList>
+</country2>

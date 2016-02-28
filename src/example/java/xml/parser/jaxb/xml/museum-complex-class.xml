@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<MUSEUM children_allowed="false">
+    <MUSEUM_NAME>Simple Museum</MUSEUM_NAME>
+    <CITY>Oviedo, Spain</CITY>
+    <PERMANENT_EXHIBITION>
+        <NAME>one exhibition</NAME>
+        <FROM>Mon Jan 01 00:00:00 IST 1900</FROM>
+    </PERMANENT_EXHIBITION>
+</MUSEUM>

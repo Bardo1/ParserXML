@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<customer xmlns="http://www.example.org/customer">
+    <billing-address>
+        <street>1 Any Street</street>
+    </billing-address>
+    <shipping-address>
+        <street>2 Another Road</street>
+    </shipping-address>
+</customer>

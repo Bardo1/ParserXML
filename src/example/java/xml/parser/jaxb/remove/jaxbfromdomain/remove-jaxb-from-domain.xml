@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<customer>
+    <billing-address>
+        <street>123 A Street</street>
+        <city>Any Town</city>
+    </billing-address>
+</customer>

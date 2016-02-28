@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<MUSEUMS>
+    <MUSEUM>
+        <MUSEUM_NAME>Prado Museum</MUSEUM_NAME>
+        <CITY>Madrid</CITY>
+        <PERMANENT_EXHIBITION>
+            <NAME>Permanent Exhibition - Prado Museum</NAME>
+            <ARTIST>Velazquez</ARTIST>
+            <ARTIST>Goya</ARTIST>
+            <ARTIST>Zurbaran</ARTIST>
+            <ARTIST>Tiziano</ARTIST>
+            <FROM>Mon Jan 01 00:00:00 IST 1900</FROM>
+            <TO>Sun Oct 11 23:30:16 IST 2015</TO>
+        </PERMANENT_EXHIBITION>
+        <SPECIAL_EXHIBITION>
+            <NAME>Game of Bowls (1908), by Henri Matisse</NAME>
+            <ARTIST>Mattise</ARTIST>
+            <FROM>Mon Jan 01 00:00:00 IST 1900</FROM>
+            <TO>Sun Oct 11 23:30:16 IST 2015</TO>
+        </SPECIAL_EXHIBITION>
+    </MUSEUM>
+    <MUSEUM>
+        <MUSEUM_NAME>Reina Sofia Museum</MUSEUM_NAME>
+        <CITY>Madrid</CITY>
+        <PERMANENT_EXHIBITION>
+            <NAME>Permanent Exhibition - Reina Sofia Museum</NAME>
+            <ARTIST>Picasso</ARTIST>
+            <ARTIST>Dali</ARTIST>
+            <ARTIST>Miro</ARTIST>
+            <FROM>Mon Jan 01 00:00:00 IST 1900</FROM>
+            <TO>Sun Oct 11 23:30:16 IST 2015</TO>
+        </PERMANENT_EXHIBITION>
+    </MUSEUM>
+</MUSEUMS>
