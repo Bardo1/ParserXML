@@ -245,13 +245,6 @@ public class CountriesJAXBMain {
 	
 	private void validationEventHandlerSchemaCountry() throws PropertyException, JAXBException, SAXException {
 		out.println("\n\nXSDs for marshaling of the objects with validation");
-		
-		// validation will fail because continent is mandatory
-		Country spain = new Country();
-		spain.setName("Spain");
-		spain.setCapital("Madrid");
-		spain.setFoundation(LocalDate.of(1469, 10, 19));
-		//spain.setFoundation(new SimpleDateFormat("yyyy, MM, dd").parse("1469, 10, 20"));
 
 		SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
 		Schema schema = sf.newSchema(new File("src/example/java/xml/parser/jaxb/xml/countries_validation.xsd"));
@@ -263,10 +256,16 @@ public class CountriesJAXBMain {
 		marshaller.setSchema(schema);
 		// the schema uses a validation handler to validate the objects
 		marshaller.setEventHandler(new CountryValidationEventHandler());
+		
+		// validation will fail because continent is mandatory
+		Country spain = new Country();
+		spain.setName("Spain");
+		spain.setCapital("Madrid");
+		spain.setFoundation(LocalDate.of(1469, 10, 19));
+		//spain.setFoundation(new SimpleDateFormat("yyyy, MM, dd").parse("1469, 10, 20"));
 		try {
 			marshaller.marshal(spain, System.out);
 		} catch (JAXBException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -280,7 +279,6 @@ public class CountriesJAXBMain {
 		try {
 			marshaller.marshal(australia, System.out);
 		} catch (JAXBException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -294,7 +292,6 @@ public class CountriesJAXBMain {
 		try {
 			marshaller.marshal(australia, System.out);
 		} catch (JAXBException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
