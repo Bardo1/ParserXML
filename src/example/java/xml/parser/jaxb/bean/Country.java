@@ -1,7 +1,6 @@
 package example.java.xml.parser.jaxb.bean;
 
 import java.time.LocalDate;
-import java.time.LocalDate;
 import java.util.Date;
 
 import javax.xml.bind.annotation.XmlElement;
@@ -9,7 +8,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import example.java.xml.parser.jaxb.adapter.DateAdapter;
+import example.java.xml.parser.jaxb.adapter.DateLocalAdapter;
 
 @XmlRootElement(name = "Country")
 @XmlType(propOrder = { "name", "capital", "foundation", "continent", "population" })
@@ -54,7 +53,7 @@ public class Country {
 	}
 
 	@XmlElement(name = "Country_Foundation_Date")
-	@XmlJavaTypeAdapter(DateAdapter.class)
+	@XmlJavaTypeAdapter(DateLocalAdapter.class)
 	public void setFoundation(LocalDate foundation) {
 	//public void setFoundation(Date foundation) {
 		this.foundation = foundation;
