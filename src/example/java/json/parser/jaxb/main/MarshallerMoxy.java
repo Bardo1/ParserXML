@@ -32,8 +32,7 @@ public class MarshallerMoxy {
 		Marshaller marshaller = jc.createMarshaller();
 		
 		// Set the Marshaller media type to JSON or XML
-		marshaller.setProperty(MarshallerProperties.MEDIA_TYPE,
-				"application/json");
+		marshaller.setProperty(MarshallerProperties.MEDIA_TYPE, "application/json");
 		
 		// Set it to true if you need to include the JSON root element in the JSON output
 		marshaller.setProperty(MarshallerProperties.JSON_INCLUDE_ROOT, true);
