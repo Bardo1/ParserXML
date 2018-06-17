@@ -16,8 +16,8 @@ import example.java.xml.parser.jaxb.adapter.DateAdapter;
 public class Country {
 	String name;
 	String capital;
-	//LocalDate foundation;
-	Date foundation;
+	LocalDate foundation;
+	//Date foundation;
 	String continent;
 	int population;
 
@@ -48,15 +48,15 @@ public class Country {
 		this.capital = capital;
 	}
 
-	//public LocalDate getFoundation() {
-	public Date getFoundation() {
+	public LocalDate getFoundation() {
+	//public Date getFoundation() {
 		return foundation;
 	}
 
 	@XmlElement(name = "Country_Foundation_Date")
 	@XmlJavaTypeAdapter(DateAdapter.class)
-	//public void setFoundation(LocalDate foundation) {
-	public void setFoundation(Date foundation) {
+	public void setFoundation(LocalDate foundation) {
+	//public void setFoundation(Date foundation) {
 		this.foundation = foundation;
 	}
 

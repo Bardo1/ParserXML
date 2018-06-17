@@ -22,8 +22,8 @@ public class DateAdapterMarshalJAXBComplexClass {
 			country.setCapital("Madrid");
 			country.setContinent("Europe");
 
-			//country.setFoundation(LocalDate.of(1469, 10, 19));
-			country.setFoundation(new SimpleDateFormat("yyyy, MM, dd").parse("1469, 10, 20"));
+			country.setFoundation(LocalDate.of(1469, 10, 19));
+			//country.setFoundation(new SimpleDateFormat("yyyy, MM, dd").parse("1469, 10, 20"));
 			//country.setFoundation(Calendar.getInstance().getTime());
 
 			JAXBContext jaxbContext = JAXBContext.newInstance(Country.class);

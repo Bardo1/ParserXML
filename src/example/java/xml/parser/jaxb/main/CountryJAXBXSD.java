@@ -20,8 +20,8 @@ public class CountryJAXBXSD {
 		spain.setName("Spain");
 		spain.setCapital("Madrid");
 		spain.setContinent("Europe");
-		//spain.setFoundation(LocalDate.of(1469, 10, 19));
-		spain.setFoundation(new SimpleDateFormat("yyyy, MM, dd").parse("1469, 10, 20"));
+		spain.setFoundation(LocalDate.of(1469, 10, 19));
+		//spain.setFoundation(new SimpleDateFormat("yyyy, MM, dd").parse("1469, 10, 20"));
 		spain.setPopulation(45000000);
 
 		SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);

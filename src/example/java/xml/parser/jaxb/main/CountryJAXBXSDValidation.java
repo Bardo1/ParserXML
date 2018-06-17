@@ -15,7 +15,7 @@ import javax.xml.validation.SchemaFactory;
 import example.java.xml.parser.jaxb.bean.Country;
 import example.java.xml.parser.jaxb.validationEventHandler.CountryValidationEventHandler;
 
-// XSDs for marshaling with validation of the objects involved
+// XSDs for marshaling of the objects with validation
 public class CountryJAXBXSDValidation {
 
 	public static void main(String[] args) throws Exception {
@@ -23,19 +23,18 @@ public class CountryJAXBXSDValidation {
 		Country spain = new Country();
 		spain.setName("Spain");
 		spain.setCapital("Madrid");
-		//spain.setFoundation(LocalDate.of(1469, 10, 19));
-		spain.setFoundation(new SimpleDateFormat("yyyy, MM, dd").parse("1469, 10, 20"));
+		spain.setFoundation(LocalDate.of(1469, 10, 19));
+		//spain.setFoundation(new SimpleDateFormat("yyyy, MM, dd").parse("1469, 10, 20"));
 
 		SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-		Schema schema = sf.newSchema(new File(
-				"src/example/java/xml/parser/jaxb/xml/countries_validation.xsd"));
+		Schema schema = sf.newSchema(new File("src/example/java/xml/parser/jaxb/xml/countries_validation.xsd"));
 
 		JAXBContext jaxbContext = JAXBContext.newInstance(Country.class);
-
 		Marshaller marshaller = jaxbContext.createMarshaller();
 		marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+		
 		marshaller.setSchema(schema);
-		// the schema uses a validation handler for validate the objects
+		// the schema uses a validation handler to validate the objects
 		marshaller.setEventHandler(new CountryValidationEventHandler());
 		try {
 			marshaller.marshal(spain, System.out);
@@ -47,8 +46,8 @@ public class CountryJAXBXSDValidation {
 		Country australia = new Country();
 		australia.setName("Australia");
 		australia.setCapital("Camberra");
-		//australia.setFoundation(LocalDate.of(1788, 01, 26));
-		australia.setFoundation(Calendar.getInstance().getTime());
+		australia.setFoundation(LocalDate.of(1788, 01, 26));
+		//australia.setFoundation(Calendar.getInstance().getTime());
 		australia.setContinent("Australia");
 
 		try {
@@ -61,8 +60,8 @@ public class CountryJAXBXSDValidation {
 		australia = new Country();
 		australia.setName("Australia");
 		australia.setCapital("Camberra");
-		//australia.setFoundation(LocalDate.of(1788, 01, 26));
-		australia.setFoundation(Calendar.getInstance().getTime());
+		australia.setFoundation(LocalDate.of(1788, 01, 26));
+		//australia.setFoundation(Calendar.getInstance().getTime());
 		australia.setContinent("Oceania");
 
 		try {

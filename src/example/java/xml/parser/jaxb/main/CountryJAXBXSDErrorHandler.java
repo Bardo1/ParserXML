@@ -25,15 +25,15 @@ public class CountryJAXBXSDErrorHandler {
 		Country spain = new Country();
 		spain.setName("Spain");
 		spain.setCapital("Madrid");
-		//spain.setFoundation(LocalDate.of(1469, 10, 19));
-		spain.setFoundation(new SimpleDateFormat("yyyy, MM, dd").parse("1469, 10, 20"));
+		spain.setFoundation(LocalDate.of(1469, 10, 19));
+		//spain.setFoundation(new SimpleDateFormat("yyyy, MM, dd").parse("1469, 10, 20"));
 
 		// ok
 		Country australia = new Country();
 		australia.setName("Australia");
 		australia.setCapital("Camberra");
-		//australia.setFoundation(LocalDate.of(1788, 01, 26));
-		australia.setFoundation(Calendar.getInstance().getTime());
+		australia.setFoundation(LocalDate.of(1788, 01, 26));
+		//australia.setFoundation(Calendar.getInstance().getTime());
 		australia.setContinent("Oceania");
 
 		// schema is created

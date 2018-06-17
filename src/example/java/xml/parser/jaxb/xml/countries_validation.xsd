@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
     <xs:simpleType name="continentType">
   		<xs:restriction base="xs:string">
     			<xs:pattern value="Asia|Europe|America|Africa|Oceania"/>
@@ -17,4 +18,5 @@
         	</xs:sequence>
         </xs:complexType>
     </xs:element>
- </xs:schema>
+
+</xs:schema>

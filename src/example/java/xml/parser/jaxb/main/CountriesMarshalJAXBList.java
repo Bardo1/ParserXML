@@ -22,16 +22,16 @@ public class CountriesMarshalJAXBList {
 			spain.setCapital("Madrid");
 			spain.setContinent("Europe");
 
-			//spain.setFoundation(LocalDate.of(1469, 10, 19));
-			spain.setFoundation(new SimpleDateFormat("yyyy, MM, dd").parse("1469, 10, 20"));
+			spain.setFoundation(LocalDate.of(1469, 10, 19));
+			//spain.setFoundation(new SimpleDateFormat("yyyy, MM, dd").parse("1469, 10, 20"));
 
 			Country usa = new Country();
 			usa.setName("USA");
 			usa.setCapital("Washington");
 			usa.setContinent("America");
 
-			//usa.setFoundation(LocalDate.of(1776, 7, 4));
-			usa.setFoundation(Calendar.getInstance().getTime());
+			usa.setFoundation(LocalDate.of(1776, 7, 4));
+			//usa.setFoundation(Calendar.getInstance().getTime());
 
 			Countries countries = new Countries();
 			countries.add(spain);
