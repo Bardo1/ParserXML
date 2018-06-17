@@ -1,6 +1,7 @@
 package example.java.xml.parser.jaxb.bean;
 
-//import java.time.LocalDate;
+import java.time.LocalDate;
+import java.time.LocalDate;
 import java.util.Date;
 
 import javax.xml.bind.annotation.XmlElement;

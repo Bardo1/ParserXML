@@ -3,7 +3,7 @@ package example.java.xml.parser.jaxb.main;
 import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-//import java.time.LocalDate;
+import java.time.LocalDate;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;

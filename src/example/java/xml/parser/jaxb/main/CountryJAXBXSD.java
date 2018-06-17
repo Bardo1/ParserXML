@@ -2,7 +2,7 @@ package example.java.xml.parser.jaxb.main;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
-//import java.time.LocalDate;
+import java.time.LocalDate;
 
 import javax.xml.XMLConstants;
 import javax.xml.bind.JAXBContext;
