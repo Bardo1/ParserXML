@@ -33,12 +33,14 @@ public class CountriesJAXBMain {
 		
 		new CountriesJAXBMain().marshalCountry();
 		new CountriesJAXBMain().marshal_Country();
+		new CountriesJAXBMain().unmarshalCountry();
 		
 		new CountriesJAXBMain().marshalCountry2JavaToXml();
 		new CountriesJAXBMain().unmarshalCountry2XmlToJava();
 		
 		new CountriesJAXBMain().marshalCountries();
 		new CountriesJAXBMain().unmarshalCountries();
+		//new CountriesJAXBMain().unmarshalCountriesValidation();
 		
 		new CountriesJAXBMain().validationXsdSchemaCountry();
 		new CountriesJAXBMain().validationEventHandlerSchemaCountry();
@@ -97,6 +99,39 @@ public class CountriesJAXBMain {
 
 		} catch (JAXBException e) {
 			e.printStackTrace();
+		}
+	}
+	
+	
+	private void unmarshalCountry() throws PropertyException, JAXBException, SAXException {
+		out.println("\n\nUnmarshal of Country");
+		// schema is created
+		SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+		Schema schema = sf.newSchema(new File("src/example/java/xml/parser/jaxb/xml/countries_validation.xsd"));
+		
+		JAXBContext jaxbContext = JAXBContext.newInstance(Country.class);
+		Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+		unmarshaller.setSchema(schema);
+		
+		File file = new File("src/example/java/xml/parser/jaxb/xml/country.xml");
+		Country country = (Country) unmarshaller.unmarshal(file);
+		out.println(country);
+		
+		// context is created and used to create sources for each country
+		jaxbContext = JAXBContext.newInstance(Country.class);
+		JAXBSource sourceCountry = new JAXBSource(jaxbContext, country);
+		
+		// validator is initialized
+		Validator validator = schema.newValidator();
+		validator.setErrorHandler(new CountryErrorHandler());
+
+		// validator is used
+		try {
+			validator.validate(sourceCountry);
+			out.println("Country has no problems");
+		} catch (SAXException | IOException ex) {
+			ex.printStackTrace();
+			out.println("Country has problems");
 		}
 	}
 	
@@ -218,6 +253,40 @@ public class CountriesJAXBMain {
 	}
 	
 	
+	private void unmarshalCountriesValidation() throws PropertyException, JAXBException, SAXException {
+		out.println("\n\nUnmarshal of Countries with validation");
+				
+		// schema is created
+		SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+		Schema schema = sf.newSchema(new File("src/example/java/xml/parser/jaxb/xml/countries_validation.xsd"));
+		
+		JAXBContext jaxbContext = JAXBContext.newInstance(Country.class);
+		Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+		unmarshaller.setSchema(schema);
+		
+		File file = new File("src/example/java/xml/parser/jaxb/xml/countries.xml");
+		Country countries = (Country) unmarshaller.unmarshal(file);
+		out.println(countries);
+		
+		// context is created and used to create sources for each country
+		jaxbContext = JAXBContext.newInstance(Country.class);
+		JAXBSource sourceCountries = new JAXBSource(jaxbContext, countries);
+		
+		// validator is initialized
+		Validator validator = schema.newValidator();
+		validator.setErrorHandler(new CountryErrorHandler());
+
+		// validator is used
+		try {
+			validator.validate(sourceCountries);
+			out.println("Countries has no problems");
+		} catch (SAXException | IOException ex) {
+			ex.printStackTrace();
+			out.println("Countries has problems");
+		}
+	}
+	
+	
 	// http://www.w3schools.com/schema/schema_example.asp
 	// http://blog.bdoughan.com/2010/12/jaxb-and-marshalunmarshal-schema.html
 	private void validationXsdSchemaCountry() throws PropertyException, JAXBException, SAXException {
@@ -235,9 +304,11 @@ public class CountriesJAXBMain {
 
 		JAXBContext jaxbContext = null;
 		Marshaller marshaller = null;
+		
 		jaxbContext = JAXBContext.newInstance(Country.class);
 		marshaller = jaxbContext.createMarshaller();
 		marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+		
 		marshaller.setSchema(schema);
 		marshaller.marshal(spain, System.out);
 	}
