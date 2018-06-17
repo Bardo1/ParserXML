@@ -29,8 +29,8 @@ public class Countries {
 	@Override
 	public String toString() {
 		StringBuffer str = new StringBuffer();
-		for (Country museum : this.countries) {
-			str.append(museum.toString());
+		for (Country country : this.countries) {
+			str.append(country.toString());
 		}
 		return str.toString();
 	}

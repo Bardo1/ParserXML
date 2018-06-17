@@ -70,15 +70,14 @@ public class Country {
 	
 	@Override
 	public String toString() {
-		StringBuffer str = new StringBuffer("Name: " + getName() + "\n");
-		str.append("Capital: " + getCapital() + "\n");
+		StringBuffer str = new StringBuffer("Country [Name: " + getName() + ", ");
+		str.append("Capital: " + getCapital() + ", ");
 		if (getFoundation() != null) {
-			str.append(getFoundation().toString());
-			str.append("\n");
+			str.append("Foundation: " + getFoundation().toString() + ", ");
 		}
 		if (getContinent() != null) {
-			str.append(getContinent().toString());
-			str.append("\n");
+			str.append("Continent: " + getContinent().toString());
+			str.append("]\n");
 		}
 		return str.toString();
 	}

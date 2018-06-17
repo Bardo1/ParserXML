@@ -53,4 +53,10 @@ public class Country2 {
 		this.listOfStates = listOfStates;
 	}
 
+	@Override
+	public String toString() {
+		return "Country2 [countryName=" + countryName + ", countryPopulation=" + countryPopulation + ", listOfStates="
+				+ listOfStates + "]";
+	}
+
 }
