@@ -2,10 +2,14 @@ package example.java.xml.parser.jaxb.main;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import static java.lang.System.out;
+import static java.nio.file.Paths.get;
 
 import javax.xml.XMLConstants;
 import javax.xml.bind.JAXBContext;
@@ -33,6 +37,7 @@ public class CountriesJAXBMain {
 		
 		new CountriesJAXBMain().marshalCountry();
 		new CountriesJAXBMain().marshal_Country();
+		new CountriesJAXBMain().unmarshalMultipleCountry();
 		new CountriesJAXBMain().unmarshalCountry();
 		
 		new CountriesJAXBMain().marshalCountry2JavaToXml();
@@ -100,6 +105,38 @@ public class CountriesJAXBMain {
 		} catch (JAXBException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	
+	private void unmarshalMultipleCountry() throws PropertyException, JAXBException, SAXException {
+		out.println("\n\nUnmarshal of multiple Country files");
+		
+		String pathPrefix = "src/example/java/xml/parser/jaxb/";
+		List<String> pathDateList = Arrays.asList("xml", "xml2", "xml3");
+		String pathFile = "country.xml";
+
+		JAXBContext jaxbContext = JAXBContext.newInstance(Country.class);
+		Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+		
+		List<Path> pathList = new ArrayList<>();
+		pathDateList.stream().forEach(p1 -> {
+			final Path TEMP_PATH = get(pathPrefix, p1, pathFile);
+			Country country;
+			if(TEMP_PATH.toFile().exists()){
+				try {
+					country = (Country) unmarshaller.unmarshal(TEMP_PATH.toFile());
+					out.println(country);
+					if(country != null){
+						pathList.add(TEMP_PATH);
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		
+		out.print("\nExisting Path of the Files...\n");
+		out.println(pathList);
 	}
 	
 	
